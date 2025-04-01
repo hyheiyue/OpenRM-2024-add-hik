@@ -3,8 +3,8 @@
 #include <opencv2/imgcodecs.hpp>
 #include <string>
 #include <iostream>
-#include "video/MvCameraControl.h"
-#include "video/hik_camera.h"
+#include "video/hik/MvCameraControl.h"
+#include "video/hik/hik_camera.h"
 #include "uniterm/uniterm.h"
 #include "utils/timer.h"
 #include "structure/stamp.hpp"
