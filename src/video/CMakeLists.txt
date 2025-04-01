@@ -7,6 +7,12 @@ add_library(
 find_library(GXIAPI_LIB
     NAMES gxiapi
 )
+target_link_libraries(openrm_video
+    PUBLIC
+    ${OpenCV_LIBS}
+    /opt/MVS/lib/64/libMvCameraControl.so
+)
+
 
 # 检查库是否找到
 if(GXIAPI_LIB)
@@ -22,7 +28,10 @@ target_sources(
         PRIVATE
         ${CMAKE_SOURCE_DIR}/src/video/uvc.cpp
         ${CMAKE_SOURCE_DIR}/src/video/tools.cpp
+        ${CMAKE_SOURCE_DIR}/src/video/hik.cpp
         $<IF:$<BOOL:${HAVE_GXIAPI}>,${CMAKE_SOURCE_DIR}/src/video/daheng.cpp,>
+        $<IF:$<BOOL:${HAVE_GXIAPI}>,${CMAKE_SOURCE_DIR}/src/video/hik.cpp,>
+
 )
 
 target_include_directories(
